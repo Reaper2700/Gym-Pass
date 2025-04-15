@@ -19,7 +19,7 @@ export class PrismaUsersRepository implements UsersRepository{
         data,
        })
 
-    return user
+        return user
     }
 }
 
