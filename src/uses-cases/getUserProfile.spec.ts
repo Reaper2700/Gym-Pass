@@ -26,7 +26,7 @@ describe('Get user Profile Use Case', () => {
             userId: createdUser.id
         })
 
-        expect(user.id).toEqual(expect.any(String))
+        await expect(user.id).toEqual(expect.any(String))
     })
 
 
