@@ -1,5 +1,4 @@
 import { PrismaGymsRepository } from '@/repositories/prisma/prisma-gyms-repository'
-import { getUsermetricsUseCase } from '../get-user-metrics'
 import { PrismaCheckInsRepository } from '@/repositories/prisma/prisma-checkIn-repository'
 import { checkinUseCase } from '../checkinUseCase'
 
