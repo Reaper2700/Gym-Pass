@@ -41,7 +41,7 @@ export class checkinUseCase {
             latitude: userLatitude, longitude: userLongitude},
         {latitude: gym.latitude.toNumber(), longitude: gym.longitude.toNumber()})
         
-        const max_distance = 0.1
+        const max_distance = 1
 
         if(distance > max_distance){
             throw new MaxDistanceError()

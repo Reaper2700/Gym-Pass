@@ -11,7 +11,7 @@ describe('Profile User (e2e)', () => {
         await app.close()
     })
 
-    it('should be able to register and login of the user', async () => {
+    it('should be able to get User Profile', async () => {
         const resquest = await request(app.server).post('/users').send({
             name: 'Rafael Pereira',
             email: 'rafaell_b@hotmail.com',

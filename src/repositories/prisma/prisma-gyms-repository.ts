@@ -12,8 +12,13 @@ export class PrismaGymsRepository implements GymsRepository {
 
         return gym
     }
-    async findManyNearBy(params: NearByParams): Promise<Gym[]> {
-        throw new Error('Method not implemented.')
+    async findManyNearBy({latitude, longitude}: NearByParams) {
+        const gyms = await prisma.$queryRaw<Gym[]>`
+            SELECT * FROM gyms
+            WHERE ( 6371 * acos( cos( radians(${latitude}) ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(${longitude}) ) + sin( radians(${latitude}) ) * sin( radians( latitude ) ) ) ) <= 10
+        `
+
+        return gyms
     }
     async searchManyByTitle(query: string, page: number): Promise<Gym[]> {
         const gym = await prisma.gym.findMany({

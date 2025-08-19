@@ -5,7 +5,7 @@ export default defineConfig({
     plugins: [tsconfigPath()],
     test: {
         dir: 'src',
-        projects: [
+        projects: [ //workspace substituido por projects
             {
                 extends: true,
                 test: {
