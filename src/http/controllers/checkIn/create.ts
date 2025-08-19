@@ -21,12 +21,14 @@ export async function create (request:FastifyRequest, reply:FastifyReply) {
 
         const createCheckInUseCase = makeCheckInUseCase()
 
-        await createCheckInUseCase.execute({
+        const response = await createCheckInUseCase.execute({
             gymId,
             userId: request.user.sub,
             userLatitude,
             userLongitude
         })
 
-    return reply.status(201).send()
+        
+
+    return reply.status(201).send( response.checkIn )
 }
