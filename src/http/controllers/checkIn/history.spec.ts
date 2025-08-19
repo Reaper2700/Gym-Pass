@@ -47,11 +47,11 @@ describe('get history checkIn (e2e)', () => {
         expect(response.body.checkIns).toEqual([
             expect.objectContaining({
                 gym_id: gym.id,
-                    users_id: user.id
+                users_id: user.id
             }),
             expect.objectContaining({
                 gym_id: gym.id,
-                    users_id: user.id
+                users_id: user.id
             })
         ])
     })

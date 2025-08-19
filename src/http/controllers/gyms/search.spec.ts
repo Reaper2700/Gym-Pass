@@ -36,8 +36,7 @@ describe('Search Gym (e2e)', () => {
             q: 'smartfit4'
         }).set('Authorization', `Bearer ${token}`)
 
-        console.log(response.body)
-        console.log(Array.isArray(response.body.gymsResponse))
+
         expect(response.statusCode).toEqual(200)
         expect(response.body.gyms).toHaveLength(1)
         expect(response.body.gyms).toEqual(
@@ -46,8 +45,7 @@ describe('Search Gym (e2e)', () => {
                     title: 'smartfit4',
                 }),
             ]),
-        )
-        
+        )   
     })
 
 })
