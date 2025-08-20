@@ -3,6 +3,7 @@ import { FastifyInstance } from 'fastify'
 import { search } from './search'
 import { nearby } from './nearby'
 import { create } from './create'
+import { verifyUserRole } from '@/http/middlewares/verifyUserRole'
 
 
 export function GymsRoutes(app: FastifyInstance){
@@ -11,6 +12,6 @@ export function GymsRoutes(app: FastifyInstance){
     app.get('/gyms/search', search)
     app.get('/gyms/nearby',  nearby)
     
-    app.post('/gyms/create', create)
+    app.post('/gyms/create', {onRequest: [verifyUserRole('ADMIN')]}, create)
     
 }
